@@ -1,0 +1,24 @@
+
+   Development log: Project 1
+   Name: Corey Johns
+
+Sep 7, 2012:
+  * Created makefile, main.cpp.
+  * Implemented user prompt.
+  * Implemented tokenization of parameters.
+  * Tested tokenization.
+  * Wrote WordWeights class interface and implementation.
+Sep 8, 2012:
+  * Improved makefile per recitation recommendations.
+  * Created test input file.
+Sep 9, 2012:
+  * Switched from char* handling to std::string handling.
+  * Re-wrote implementation for tokenization of parameters.
+  * Added debugging code.
+Sep 11, 2012:
+  * Compared output to expected output from sample executable.
+  * Added a limit to documents output.
+  * Added handler for no documents to output.
+  * Implemented a sort for results map.
+Sep 12, 2012:
+  * Cleaned up and clarified main functions.

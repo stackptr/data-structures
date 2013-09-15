@@ -1,0 +1,17 @@
+
+   Development log: Project 2 Part 2
+   Name: Corey Johns
+
+Sep 28, 2012:
+  * Started researching game trees
+  * Developed basic structure of main.cpp
+Sept 29, 2012:
+  * Designed board implementation
+  * Wrote function to draw board state
+  * Wrote function to test board state
+  * Designed test case
+  * Wrote minimax
+Sept 30, 2012:
+  * Debugged minimax endlessly. It has remained stupid.
+Oct 1, 2012:
+  * Giving up and submitting assignment.

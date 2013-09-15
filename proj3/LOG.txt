@@ -1,0 +1,16 @@
+
+   Development log: Project 3
+   Name: Corey Johns
+
+Oct 13, 2012:
+  * Created project directory, skeleton files
+  * Reusing main.cpp from Proj 1
+  * Created DLL class, a generic double-linked and self-organizing List
+Oct 14, 2012:
+  * Created WordList class to replace assignment 1's WordWeights class.
+  * Using word class to store a word and its frequency in the List
+  * Implemented extra operator overloads in List iterators
+  * Added Find and FindAndMove functions in List
+  * Cleaned up main.cpp
+  * Performed tests on each function.
+  * Project submission.

@@ -1,0 +1,13 @@
+
+   Results: Assignment 5
+   Name: Corey Johns
+
+   Data structure MyDS:
+
+MyDS is a HashTable using separate chaining. It uses the vector and list classes created from earlier assignments for the actual table. The rehash function is used from example code on the textbook website.
+
+   Performance comparison:
+
+All data structures appear to look up a word very quickly. When using <ctime> to obtain the clock ticks before a find() function and then again after the function is called, no difference was recorded. This holds true for the supplied cputime.h code. Since the same timing code appears to accurately determine the duration taken to store the words into each container, it is presumed that the function is very fast on modern computers, as would be expected, and that on slower computers it will probably yield meaningful results.
+
+For insertion into each container, the STL set appears to be the slowest. STL unordered_set is significantly faster on large text files (specifically, a text file of War and Peace), showing a 40% improvement on average. The unordered_set with the defined MyHash function was slightly faster, yielding about a 7% improvement on the same word list. MyDS seems to have about the same performance as myhash (unordered_set with standard hash function), though on some run-throughs it showed a slightly worse performance by a few milliseconds.

@@ -1,0 +1,22 @@
+
+   Development log: Project 4
+   Name: Corey Johns
+
+Nov 1, 2012:
+  * Reusing main.cpp from Project 3, modifying wordlist.cpp and creating BST class.
+  * Created templated, generic BST class.
+  * Tested insertion, deletion, print functions of BST.
+Nov 2, 2012:
+  * Added tree rotation functions.
+  * Tested self-balancing tree.
+  * Created get function to return a reference of a node, for modifying non-sorted data.
+Nov 3, 2012:
+  * Modified wordlist class.
+  * Tested program, segfault occurs. Using gdb, a segfault occurs in makeEmpty of BST.
+  * Further testing indicates segfault occurs only when operator= is used.
+  * Bug occured in copy constructor, not initializing root to NULL.
+Nov 6, 2012:
+  * Created function to retrieve and update (restructure) a node of the tree, for the query functionality of the program.
+  * Created results.txt
+Nov 7, 2012:
+  * Project submission

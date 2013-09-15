@@ -1,0 +1,153 @@
+
+<!-- saved from url=(0061)http://www.cs.fsu.edu/~asriniva/courses/DS12/projs/proj2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Assignment 2</title>
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script><style type="text/css"></style></head>
+
+<body screen_capture_injected="true">
+<blockquote>
+<h1 align="center">Stacks, recursion, and games</h1>
+
+<p align="center"><b>Due: 26 Sep 2012</b> (The deadline for part 2 alone is extended to 1 Oct)</p>
+
+<p align="center"><b>Note: This project has two parts. The first part is an individual assignment. In the second part, you may work in a group if you wish to.</b></p>
+
+<p align="center"><b>Part 1 (80 %)</b></p>
+
+
+<p><b>Educational objectives:</b>
+</p><ul>
+ <li> <em><b>Primary objectives:</b></em> Experience implementing stacks, using recursive function calls, analyzing the runtime of your code.<p></p>
+ </li></ul>
+
+<p><b>Statement of work:</b> (i) Implement a generic <code>Vector</code> class and adapt it to create a <em>stack</em> class, and (ii) evaluate a recursive function given below.</p>
+
+<p><b>Deliverables:</b> 
+</p><ul>
+<li>Turn in a <code>makefile</code> and
+all header (*.h) and cpp (*.cpp) files that are needed to build your
+software, as described in <a href="http://www.cs.fsu.edu/~asriniva/courses/DS12/HWinstructions.html">www.cs.fsu.edu/~asriniva/courses/DS12/HWinstructions.html</a>. Turn in your development log too, which should be a plain ASCII text file called <code>LOG.txt</code> in your project directory. 
+</li></ul>
+
+
+
+<p><b>Requirements:</b></p>
+
+<ul>
+ <li>Create
+     a subdirectory called <code>proj2</code>.</li>
+ <li>You
+     will need to have a <code>makefile</code> in this directory. In addition, all the
+     header and cpp files needed to build your software must be present here, as well as the <code>LOG.txt</code> file.</li>
+<li> You should create the following additional files.
+<ul>
+<li><em>Vector.h:</em> This should implement a generic <code>Vector</code> class with at least the following features: (i) a default constructor, (ii) a destructor, (iii)  <code>void push_back(const T &amp;e)</code>, (iv) the operator <code>[]</code>, and (v) <code>int size()</code>.
+</li><li><em>Stack.h:</em> This should implement a generic <code>Stack</code> class with at least the following features: (i)  <code>void push(T &amp;)</code>, (ii)  <code>void pop()</code>, (iii)  <code>T &amp;top()</code>, and (iv)  <code>bool empty()</code>.
+</li><li><em>Other files:</em> You may use more files.
+</li><li><em>main.cpp:</em> This is the main program. The command: <code>./recurse N<sub>1</sub> C<sub>1</sub> A<sub>1</sub> M<sub>1</sub> M<sub>2</sub> M<sub>3</sub> M<sub>4</sub> D<sub>1</sub> D<sub>2</sub> S<sub>1</sub> S<sub>2</sub> Arg Op </code> will cause the function given below to be evaluated recursively, and the answer output. The function is defined as follows.
+<p><code>f(N) = 0</code>, if <code>N &lt; N<sub>1</sub></code>
+</p><p><code>f(N<sub>1</sub>) = C<sub>1</sub></code>
+</p><p> <code>f(N)= A<sub>1</sub> + M<sub>1</sub>*f(M<sub>2</sub>*N/D<sub>1</sub> - S<sub>1</sub>) <em>Op</em> M<sub>3</sub>*f(M<sub>4</sub>*N/D<sub>2</sub> - S<sub>2</sub>)</code>, if <code>N &gt; N<sub>1</sub></code>
+</p><p> Here, <code>f(Arg)</code> needs to be evaluated. N<sub>1</sub> C<sub>1</sub> A<sub>1</sub> M<sub>1</sub> M<sub>2</sub> M<sub>3</sub> M<sub>4</sub> D<sub>1</sub> D<sub>2</sub> S<sub>1</sub> S<sub>2</sub>, Arg are integers and <em>Op</em> is either <code>+</code> or <code>-</code>. The division performed is the usual integer division with truncation.
+
+</p><p><b>Example:</b>
+</p><p><code> Prompt&gt; ./recurse 2 3 2 1 2 0 1 3 6 0 0 18 +</code>
+</p><p><code>13</code> (program output)
+
+</p></li><li> <em>Analysis.pdf:</em> This file should contain the following. (i) The asymptotic time complexity for evaluation of the recursive function as a function of all arguments to the executable <code>recurse</code> which influence the running time of that program. For the analysis alone, assume that <code>S<sub>1</sub> = S<sub>2</sub> = 0</code>, <code>M<sub>2</sub> = M<sub>4</sub> = 1</code>, and <code>D<sub>1</sub> = D<sub>2</sub> &gt; 1</code>. Briefly justify the results of your analysis. (ii) Amortized time complexity for <code>N</code> <code>push</code> operations on the stack. Briefly justify your analysis.
+
+</li></ul>
+</li></ul>
+
+<p><b>Sample executable:</b> A sample executable is available at ~cop4530/fall12/solutions/proj2/recurse on <code>linprog</code>. The first person to find errors in our program will get a bonus point!</p>
+
+
+<p><b>Notes: </b>
+</p><ol>
+
+<li> You should not use STL containers, other than the <code>string</code> class. Please get my written
+permission before using any other STL feature.
+
+</li><li> <b>You will need to pass certain components of this assignment to pass this course.</b> 
+
+</li></ol>
+ 
+<p align="center"><b>Part 2 (20 %)</b></p>
+
+<p><b>Educational objectives:</b>
+</p><ul>
+ <li> <em><b>Primary objectives:</b></em> Using recursion to evaluate a game tree, implementing a tic-tac-toe code that uses a game tree.<p></p>
+ </li><li> <em><b>Secondary objectives:</b></em> Developing a good user interface, developing a strategy to play tic-tac-toe well.<p></p>
+</li></ul>
+
+<p><b>Statement of work:</b> Write a program to play tic-tac-toe. Your program should accept moves from a human, and should make good moves in its turn, in trying to win the game. </p>
+
+
+<p><b>Background:</b> Tic-tac-toe is normally played with a <i>3x3</i> array.  This can be generalized to
+bigger arrays. All cells in the array are initially unmarked. Two players
+take turns marking previously unmarked cells, with the first player
+making an <i>X</i><span style="font-style:normal"> mark and the second
+player making a </span><i>0</i><span style="font-style:normal">
+mark. The game ends if (i) either player wins, or (ii) the game is
+tied, because neither player wins. A player wins if he has a specified
+number of consecutive marks along a line. These consecutive marks can
+either be along a horizontal line, a vertical line, or a diagonal. A
+diagonal is as explained below. Let the cells be numbered so that the
+bottom left cell is denoted by </span><i>(1,1)</i><span style="font-style:normal"> and the top right by
+</span><i>(n,n)</i><span style="font-style:normal"> in an </span><i>n
+x n</i><span style="font-style: normal"> array. A diagonal going
+North-East will have cell </span><i>(i+1,j+1)</i><span style="font-style:normal"> adjacent to cell </span><i>(i,j)</i><span style="font-style:normal">, while a cell going North-West will has
+cell </span><i>(i-1,j+1)</i><span style="font-style:normal"> adjacent
+to cell (i,j). <a href="http://boulter.com/ttt/">http://boulter.com/ttt/</a> has an
+example of a tic-tac-toe game. They permit an array that has a height
+different from its width. But we will require the height and the width
+to be equal. You should evaluate <a href="http://www.ocf.berkeley.edu/~yosenl/extras/alphabeta/alphabeta.html">game trees</a> with recursion to try to win the game.  
+
+</span></p><p><b>Deliverables:</b></p>
+<ul>
+ <li>Create
+     a subdirectory called <code>TicTacToe</code>.</li>
+ <li>You
+     will need to have a <code>makefile</code> in this directory. In addition, all the
+     header and cpp files needed to build your software must be present here, as well as the <code>LOG.txt</code> file.</li>
+<li> You should create the following additional file.
+<ul>
+<li><em>main.cpp:</em> This is the main program. It will accept three command
+line arguments. The command: <code>./proj2 &lt;n&gt; &lt;m&gt; &lt;h/c&gt;</code>
+will cause a tic-tac-toe game to be played using an <i>n x n</i> array, with <i>m</i> marks in a line needed to win. The argument <i>h</i> will cause the human to play first, while a <i>c</i> will cause the computer to play first. For example, <code>./proj2
+4 3 h</code> will play a tic-tac-toe game on
+a <i>4x4</i> array, with <i>3</i> consecutive marks required to win, and the human
+playing first. Whenever it is the human's turn to play, the program should
+present the current state of the game, and specify how the human should let the
+computer know about his/her move. The human has unlimited time to make a move.
+However, the computer should complete its move within <i>5</i> seconds. The program should also give the correct
+final result of the game.
+
+</li></ul>
+</li></ul>
+
+ <p><b>Notes: </b>
+</p><ol>
+
+<li> You can get up to 10 bonus points if your code wins a tic-tac-toe tournament that we will organize, competing against other tic-tac-toe programs. 
+
+</li><li> You will be graded on your user interface too.
+
+</li><li> You may use any STL feature for this part of the assignment.
+
+</li><li> You must use a game tree for at least a few levels of recursion, after which you may use some intelligent strategy to evaluate a position.
+
+</li><li> You may form groups of up to 4 students each if you wish to. In this case, please email me the names of all group members by Sep 15, with a cc to each group member, and also include the names of the group members in the log file.
+
+</li><li> The size of the problem will be at most <code>10 x 10</code>.
+
+</li></ol>
+ 
+<hr>
+<font -2="">Last modified: 14 Sep 2012</font>
+</blockquote>
+
+
+
+
+<iframe id="rdbIndicator" width="100%" height="270" border="0" src="./Assignment 2_files/indicator.html" style="display: none; border: 0; position: fixed; left: 0; top: 0; z-index: 2147483647"></iframe></body></html>

@@ -1,0 +1,101 @@
+
+<!-- saved from url=(0061)http://www.cs.fsu.edu/~asriniva/courses/DS12/projs/proj5.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Assignment 5</title>
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script><style type="text/css"></style></head>
+
+<body screen_capture_injected="true">
+<blockquote>
+<h1 align="center">Assignment 5</h1>
+
+<p align="center"><b>Due: 28 Nov 2012</b></p>
+
+
+<p><b>Educational objectives:</b>
+</p><ul>
+ <li> <em><b>Primary objectives:</b></em> Implement an <b>efficient</b> data structure for storing words and searching to see if a word is in a file.<p></p>
+ </li><li> <em><b>Secondary objectives:</b></em> Empirically compare the performance of different data structures.<p></p>
+</li></ul>
+
+<p><b>Statement of work:</b> Implement a good hash function for strings, where the strings are words, using the STL <code>tr1/unordered_set</code> container. Also implement another efficient data structure for storing these words. Compare the performances of  of (i) STL <code>set</code>, (ii) STL <code>tr1/unordered_set</code> with the default hash function, (iii) STL <code>tr1/unordered_set</code> with your hash function, and (iv) your data structure. You will be graded on the performance and correctness of your code. So, please use good compiler optimization flags in your makefile. You may also use OpenMP to improve the performance of your code.</p>
+
+<p><b>Deliverables:</b> 
+</p><ul>
+<li>Turn in a <code>makefile</code> and
+all header (*.h) and cpp (*.cpp) files that are needed to build your
+software, as described in <a href="http://www.cs.fsu.edu/~asriniva/courses/DS12/HWinstructions.html">www.cs.fsu.edu/~asriniva/courses/DS12/HWinstructions.html</a>. Turn in your development log too, which should be a plain ASCII text file called <code>LOG.txt</code> in your project directory. 
+</li></ul>
+
+
+
+<p><b>Requirements:</b></p>
+
+<ul>
+ <li>Create
+     a subdirectory called <code>proj5</code>.</li>
+ <li>You
+     will need to have a <code>makefile</code> in this directory. In addition, all the
+     header and cpp files needed to build your software must be present here, as well as the <code>LOG.txt</code> file.</li>
+<li> You should create the following additional files.
+<ul>
+
+<p></p><li><em>MyHash.h:</em> This should implement a hash function object that maps an STL string to an integer type. 
+
+
+<p></p></li><li><em>MyDS.h/MyDS.cpp:</em> These files should provide the interface and implementation for your data structure. You can feel free to implement any data structure that you wish to, including designing your own data structure or combining multiple data structures. This data structure should store STL strings. It should be in a class called <code>MyDS</code> and implement at least the following member functions: (i) default constructor, (ii) <code>void push(const string
+&amp;)</code>, (iii) <code>bool search(const string &amp;)</code>, and (iv) destructor, which perform the operations expected from their names. You should not use any STL container other than strings to implement your data structure.
+
+<p></p></li><li><em>compare.cpp:</em> This program will be compiled to create an executable called <code>compare-containers</code>, and the executable will be run as follows.
+<ul>
+<li> <code>./compare-containers File-List</code>, where <code>File-list</code> is a list of file names. Each file contains words separated by whitespaces. 
+</li></ul>
+For each of the files, your code should create four containers -- one of each kind mentioned above -- and store each word in the file in each of these containers. Your code will read words from <code>cin</code>, one word per line, until it reads the word <code>x</code>, and store these words in an STL <code>vector</code>. For each word in the vector, your code should output all the files in which the word is present. You should output this result for each container, so that we can check whether each container works correctly. (If your code is correct, then the result for each container will be the same.) The output format will be: <code>word Container File-names</code> where Container = <code>set/hash/myhash/myds</code> and File-names is a list of files in which that word is present, each name separated by a blank. For example:
+
+<p><code>grade set file1.txt file3.txt</code>
+<br><code>grade hash file1.txt file3.txt</code>
+<br><code>grade myhash file1.txt file3.txt</code>
+<br><code>grade myds file1.txt file3.txt</code>
+
+</p><p>If the word is not present in any file, then the output will look like:
+<br><code>graed set</code>
+<br><code>graed hash</code>
+<br><code>graed myhash</code>
+<br><code>graed myds</code>
+
+</p><p>Your code should not perform the above search and output for the last word, <code>x</code>. Instead, it should output the time taken for initially storing the words of all the files, the minimum search time for a word, the maximum search time for a word, and the average search time for a word, for each container, and then exit. For example:
+
+</p><p><code>set: store 10.1 s, search: min 0.01 s, max 1.0 s, mean 0.05 s</code>
+</p><p><code>hash: store 2.2 s, search: min 0.02 s, max 1.5 s, mean 0.04 s</code>
+</p><p><code>myhash: store 9.1 s, search: min 0.01 s, max 0.09 s, mean 0.03 s</code>
+</p><p><code>myds: store 1.1 s, search: min 0.001 s, max 0.02 s, mean 0.03 s</code>
+
+
+</p><p></p></li><li><em>result.txt:</em> This is an ASCII text file. It should first describe your data structure (MyDS). It should then discuss the relative performances of the four data structures.
+
+</li></ul>
+</li></ul>
+
+
+<p><b>Note: </b>
+</p><ol>
+
+<li> We will test your <code>MyDS</code> class on a piece of code that we will write. So it is
+important for this class to be exactly as specified.
+</li></ol>
+ 
+<p><b>Bonus points (5):</b>
+
+</p><p> You may get up to 50 additional points if your code is correct and the fastest in class. You may get up to 25 bonus points if MyDS or an unordered_set with your hash function works correctly and is faster that the two STL containers. (The speed of the STL containers will be determined by a piece of single-threaded code that we write, in determining bonus points).</p>
+
+
+<p><em>Copyright: Ashok Srinivasan, Florida State University</em>.
+
+ 
+</p><hr>
+<font -2="">Last modified: 8 Nov 2011</font>
+</blockquote>
+
+
+
+
+<iframe id="rdbIndicator" width="100%" height="270" border="0" src="./Assignment 5_files/indicator.html" style="display: none; border: 0; position: fixed; left: 0; top: 0; z-index: 2147483647"></iframe></body></html>

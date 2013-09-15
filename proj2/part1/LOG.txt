@@ -1,0 +1,16 @@
+
+   Development log: Project 2
+   Name: Corey Johns
+
+Sep 13, 2012:
+  * Created vector.h, stack.h interfaces.
+  * Created skeleton main.cpp.
+  * Wrote generic Vector class (untested).
+Sep 23, 2012:
+  * Wrote recursive program main.cpp
+  * Created makefile
+  * Combined vector.h and vector.cpp
+  * Created driver program to test Vector and Stack classes
+  * Updated vector.h with resize, increase, pop_back functions
+  * Fixed Stack<T>::push to work with const references
+  * Submitted assignment

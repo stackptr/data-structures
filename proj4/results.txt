@@ -1,0 +1,14 @@
+Results.txt
+Corey Johns
+11/7/2012
+
+The following tests were performed to test the BST class:
+
+- First a print function was written to show the tree in a 90 degree rotation, so that it is clear which nodes are children and leaves and so on. This is essentially in making sure the tree is correct.
+- A driver was written to perform a series of inserts and deletes. The insertions and deletions are confirmed to be correct when printing the tree.
+- The driver was re-written to use the copy constructor to test the clone and operator= functions. There was a bug that occured when the copy constructor did not initialize root to NULL, causing segfaults.
+- The driver was rewritten to use several data types to ensure the template works properly. Tested were int, double, std::string, and the word class written for the assignment.
+- findMin, findMax, and contains were tested and confirmed through the printTree function. 
+- Finally the assignment specific functions were tested, specifically get and getAndUpdate. This test was performed through the main.cpp interface, since it would not function without correct results.
+
+The BST implementation performs faster queries than the DLL but slower analyses, though the time difference for small inputs is negligible.

@@ -1,0 +1,93 @@
+
+<!-- saved from url=(0061)http://www.cs.fsu.edu/~asriniva/courses/DS12/projs/proj3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Assignment 3</title>
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script><style type="text/css"></style></head>
+
+<body screen_capture_injected="true">
+<blockquote>
+<h1 align="center">Find the relevance of documents</h1>
+
+<p align="center"><b>Due: 20 Oct 2012</b></p>
+
+<p><b>Educational objectives:</b> Experience implementing a self-organizing linked-list and solving problems using the above class.</p>
+
+<p><b>Statement of work:</b> (i) Implement a linked list class that self-organizes as specified below and (ii) implement a document retrieval program, which is a modification of that in assignment 1, but using your self-organizing linked list to store the list of words in each document. You should <b>not</b> use an STL <code>list</code> in your implementation.</p>
+
+<p><b>Deliverables:</b> Turn in a <code>makefile</code> and
+all header (*.h) and cpp (*.cpp) files that are needed to build your
+software. Turn in your development log too, which should be a plain ASCII text file called <code>LOG.txt</code> in your project directory. You will submit all of these as described in <a href="http://www.cs.fsu.edu/~asriniva/courses/DS12/HWinstructions.html">www.cs.fsu.edu/~asriniva/courses/DS12/HWinstructions.html</a>.  </p>
+
+<p><b>Requirements:</b></p>
+
+<ul>
+ <li>Create
+     a subdirectory called <code>proj3</code>.</li>
+ <li>You
+     will need to have a <code>makefile</code> in this directory. In addition, all the
+     header and cpp files needed to build your software must be present here, as well as the <code>LOG.txt</code> file.</li>
+ <li>You
+     should implement appropriate classes for the software. Your code should be well designed and object oriented. </li>
+  <li>Your software's main task is as follows. A user will give it queries consisting of a set of words. For each query, the software should give the most relevant documents that contain all words in that query.
+     </li>
+ <li>The
+     software is run by the user on the command
+     line, as follows:</li>
+ <ul>
+  <li><code>Retrieve Filename-List</code>, where  <code>Filename-List</code>  is a list of file names of zero or more ASCII text documents.</li>
+ </ul>
+
+ <li> The software first <em>analyzes</em> each file given on the command line. Details of the analysis are explained later. The software then waits for a series of user actions, and responds to each user action as described below. 
+  
+
+<p>Possible user actions and required software response:
+</p></li>
+
+ <ul>
+  <li><code>a Filename</code>: <em>Analyze</em> the ASCII text file <code>Filename</code>. If this file has already been analyzed previously, then replace the results of the previous analysis with the current one. If the file does not exist, then output <code>File Filename does not exist</code> to standard output (not to standard error). This command reads each word in the file. Each time a <b>new</b> word is encountered, it is pushed to
+ the back of your linked list (there is a distinct list for each
+ document). 
+</li>
+
+  <li><code>q n Word-List</code>: <code>n</code> is a positive integer and <code>Word-List</code> is a list of <em>words</em> (this is defined later) separated by one or more blanks. The software returns a list of the <code>n</code> most relevant documents containing all the words in <code>Word-List</code>. If fewer than <code>n</code> documents match the query, then all the matching documents are returned. Each line of the output will first give the name of a document, followed by a blank, followed by the document's <code>relevance</code>, which is a floating point number defined later. The documents are output in decreasing order of relevance (that is, most relevant document first). If no document matches, then output <code>No matching document</code> to standard output. This command also self-organizes the linked list of each document as follows. For each word in the word list that is found, that word is moved two steps toward the front of the list (unless it is already the first or second word, in which case it is placed in the front of the list).
+
+</li><li><code>p n Filename</code>: <code>n</code> is a positive integer and <code>Filename</code> is the name of a file that has previously been analyzed. If this file has not been analyzed previously, then output <code>File Filename has not been analyzed</code> to standard error. Otherwise, output the first <code>n</code> words in the linked list that contains all the words in <code>Filename</code>.
+
+  </li><li><code>x</code>: Quit the program.</li>
+
+  <li>Output <code>Invalid command</code> to standard output for any other command. </li>
+ </ul>
+
+
+ <p></p><li> <em>Analysis</em> of a document. In this process, the
+ software will identify the set of <em>words</em> in the
+ document. Each word will be given a floating point
+ <em>weight</em>. The weight of a word is the ratio of the frequency
+ of its occurrence to the total number of words in the document. You
+ should store the weights of each word, of each document analyzed, in
+ a suitable container.
+
+<p> A <em>word</em> is defined as a sequences of adjacent characters in the input file,
+ separated by any of the following delimiters: whitespace (blanks, tabs, and newlines) or any of the following <b><code>! ( ) - : ; " , . ? /</code></b>. (A delimiter cannot be a part of any word.)  Note that <code>abandon</code> and <code>Abandon</code> are different words, as are <code>car</code> and <code>car's</code>.  
+
+ </p><p></p></li><li> <em>Relevance</em> of a document. A document is relevant to a query only if it contains each word in the query. If a document contains each word in the query, then its relevance is defined as the sum of the weights, in this document, of all the words in the query.
+
+</li></ul>
+
+<p><b>Sample file and executable:</b> A sample executable and some example files will be available in the ~cop4530/fall12/solutions/proj3 directory on linprog later. The first person to find an error in our executable will get a bonus point!</p>
+
+<p><b>Bonus points:</b>
+
+</p><p> You will get 3 bonus points if your code is faster than our sample executable on some large tests which we will announce after the submission deadline. (Your code should also be correct.)
+
+</p><p> You may get up to 5 additional points for significant extra work, such as implementing more features (for example, determining that different forms of the same word, such as <code>serve</code>, <code>served</code>, <code>serving</code>, and <code>serves</code> are equivalent) or providing a GUI interface. Please obtain written permission from me prior to doing this. If you wish to get bonus points, then please submit your work as usual, but send an email to the John Nguyen. John will schedule a meeting with you, and you can demonstrate the special features of your software then.</p>
+
+<p><em>Copyright: Ashok Srinivasan, Florida State University</em>.
+
+</p><hr>
+<font -2="">Last modified: 15 Oct 2012</font>
+</blockquote>
+
+
+
+<iframe id="rdbIndicator" width="100%" height="270" border="0" src="./Assignment 3_files/indicator.html" style="display: none; border: 0; position: fixed; left: 0; top: 0; z-index: 2147483647"></iframe></body></html>

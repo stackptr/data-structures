@@ -1,0 +1,15 @@
+
+   Development log: Project 5
+   Name: Corey Johns
+
+Nov 22, 2012
+  * Created compare.cpp and makefile
+  * Using one map to map a filename to one type of container
+  * Implemented STL set container
+Nov 24, 2012:
+  * Added timing code via <ctime>. It appears find() is very fast for set.
+  * Added unordered_set implementation.
+Nov 27, 2012:
+  * Implemented MyHash object and myhash container.
+  * Tried cputime.h instead of <ctime>, still results in no time recorded for find().
+  * Began MyDS class, using vector.h and list.h from previous assignments.
